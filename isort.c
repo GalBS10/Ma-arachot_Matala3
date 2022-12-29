@@ -46,15 +46,12 @@ int main(){
     
     insertion_sort(arr,SIZE);
 
-    for(int i=0;i<SIZE-1;i++){
-        if(i==SIZE-1){
-            printf("%d",*(arr+i));    
-            break;    
-        }
+    for(int i=1;i<SIZE-1;i++){
+
         printf("%d,",*(arr+i));
-        
 
     }   
+    printf("%d",*(arr));    
     printf("\n");
 
     return 0;
