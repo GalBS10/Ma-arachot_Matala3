@@ -6,7 +6,7 @@
 
 int shift_element(int* arr,int i){
 
-    int tmp = *(arr+i);
+    int tmp = *(arr+i)+1;//in order to keep the value in that index. Moreover we do so in order to prevent duplicates of value that are allready exist 
     for(int* j=(arr+i+1);j>arr;j--){
 
         *(j)=*(j-1);
@@ -18,19 +18,16 @@ int shift_element(int* arr,int i){
 }
 
 int insertion_sort(int* arr, int len){
-
-    int i, key, j;
-    for (i = 1; i < len; i++) {
-    key = *(arr+i);
+    int j,val=0;
+    for (int i = 1; i < len; i++) {
+    val = *(arr+i);
     j = i - 1;
-
-        while (j >= 0 && *(arr+j) > key) {
+        while ((j >= 0) && (*(arr+j) > val)) {
             *(arr+j+1) = *(arr+j);
-            j = j - 1;
+            j--;
         }
-        *(arr+j+1) = key;
+        *(arr+j+1) = val;
     }
-
     return 0;
 }
 
@@ -46,7 +43,18 @@ int main(){
     
     insertion_sort(arr,SIZE);
 
+   
     for(int i=0;i<SIZE-1;i++){
+
+        printf("%d,",*(arr+i));
+
+    }
+    printf("%d",*(arr +SIZE-1));    
+    printf("\n");
+    
+    shift_element(arr,5);
+
+     for(int i=0;i<SIZE-1;i++){
 
         printf("%d,",*(arr+i));
 
